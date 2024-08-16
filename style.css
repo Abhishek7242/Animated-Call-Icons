@@ -1,0 +1,133 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  background: linear-gradient(270deg, #fbd3e9, #bbdefb, #c8e6c9, #fff9c4);
+  background-size: 800% 800%;
+  animation: bgAnimation 10s ease infinite;
+}
+@keyframes bgAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.phone-icon-container {
+    display: flex;
+    gap: 200px;
+}
+
+.phone-icon {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone-icon.receive {
+    background-color: #4CAF50; /* Previous green color */
+    animation: shake 0.3s infinite;
+}
+
+.phone-icon.cut {
+    background-color: #F44336; /* Red color for cut icon */
+}
+
+.phone-icon .wave {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 4px solid rgba(0, 255, 64, 0.5);
+    border-radius: 50%;
+    animation: wave-animation 2s infinite ease-out;
+}
+
+.phone-icon.receive .wave:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.phone-icon.receive .wave:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.phone-icon.receive .wave:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.phone-icon.cut .wave.reverse {
+    border-color: rgba(255, 69, 58, 0.5); /* Adjusted color for red icon waves */
+    animation: wave-animation-reverse 2s infinite ease-out;
+}
+
+.phone-icon.cut .wave.reverse:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.phone-icon.cut .wave.reverse:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.phone-icon.cut .wave.reverse:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.phone-icon .phone-svg {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    z-index: 2; /* Ensure it stays on top of the waves */
+}
+
+.phone-icon .phone-svg svg {
+    fill: #ffffff;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes wave-animation {
+    0%,100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    90% {
+        transform: scale(2.5);
+        opacity: 0;
+    }
+}
+
+@keyframes wave-animation-reverse {
+    0% ,100%{
+        transform: scale(2.5);
+        opacity: 0;
+    }
+90% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-2px);
+    }
+    50% {
+        transform: translateX(2px);
+    }
+    75% {
+        transform: translateX(-2px);
+    }
+}
